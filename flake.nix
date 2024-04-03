@@ -16,6 +16,7 @@
           packages = {
             dakara_check = import ./packages/dakara_check.nix attrs;
             ffmpegaacsucks = import ./packages/ffmpegaacsucks.nix attrs;
+            syncplay = import ./packages/syncplay.nix attrs;
           };
         };
     };
