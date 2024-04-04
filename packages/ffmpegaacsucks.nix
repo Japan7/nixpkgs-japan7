@@ -1,9 +1,9 @@
 { stdenv
 , fetchzip
+, ffmpeg
 , meson
 , ninja
 , pkg-config
-, ffmpeg
 , ...
 }:
 stdenv.mkDerivation rec {

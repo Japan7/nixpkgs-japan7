@@ -9,13 +9,13 @@
 }:
 stdenv.mkDerivation rec {
   pname = "dakara_check";
-  version = "4.0.0";
+  version = "4.0.1";
 
   src = fetchFromGitHub {
     owner = "Japan7";
     repo = pname;
     rev = version;
-    sha256 = "sha256-ea/qDHi2jHHvgjeSUOosMiZB++eihD9xAZobQRPn844=";
+    sha256 = "sha256-VZhDHq64XlIkS9mGvPLEA5i3gm1xPlTYB/uPveOH5Cw=";
   };
 
   nativeBuildInputs = [
