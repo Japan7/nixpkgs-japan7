@@ -1,10 +1,10 @@
-{ self'
-, stdenv
+{ stdenv
 , fetchFromGitHub
+, ffmpeg
 , meson
 , ninja
 , pkg-config
-, ffmpeg
+, ffmpegaacsucks
 , ...
 }:
 stdenv.mkDerivation rec {
@@ -26,6 +26,6 @@ stdenv.mkDerivation rec {
 
   propagatedBuildInputs = [
     ffmpeg
-    self'.packages.ffmpegaacsucks
+    ffmpegaacsucks
   ];
 }

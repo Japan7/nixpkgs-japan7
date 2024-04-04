@@ -8,16 +8,12 @@
     flake-parts.lib.mkFlake { inherit inputs; } {
       systems = [ "x86_64-linux" "aarch64-linux" "aarch64-darwin" "x86_64-darwin" ];
 
-      perSystem = { self', pkgs, ... }:
-        let
-          attrs = pkgs // { inherit self'; };
-        in
-        {
-          packages = {
-            dakara_check = import ./packages/dakara_check.nix attrs;
-            ffmpegaacsucks = import ./packages/ffmpegaacsucks.nix attrs;
-            syncplay = import ./packages/syncplay.nix attrs;
-          };
+      perSystem = { pkgs, ... }: {
+        packages = rec {
+          dakara_check = pkgs.callPackage ./packages/dakara_check.nix { inherit ffmpegaacsucks; };
+          ffmpegaacsucks = pkgs.callPackage ./packages/ffmpegaacsucks.nix { };
+          syncplay = pkgs.callPackage ./packages/syncplay.nix { };
         };
+      };
     };
 }
