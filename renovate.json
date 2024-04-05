@@ -1,5 +1,4 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["github>Japan7/renovate-config"],
-  "ignoreTests": true
+  "extends": ["github>Japan7/renovate-config"]
 }

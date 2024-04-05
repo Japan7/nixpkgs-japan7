@@ -1,0 +1,30 @@
+name: Nix
+
+on:
+  push:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: cachix/install-nix-action@v26
+      - run: nix flake check --all-systems
+
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        os:
+          - ubuntu-22.04 # linux x86_64
+          - macos-12 # macOS x86_64
+          - macos-14 # macOS arm64
+        package:
+          - dakara_check
+          - ffmpegaacsucks
+          - syncplay
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: cachix/install-nix-action@v26
+      - run: nix build -L .#${{ matrix.package }}
