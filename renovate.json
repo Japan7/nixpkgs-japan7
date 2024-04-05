@@ -1,4 +1,10 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["github>Japan7/renovate-config"]
+  "extends": ["github>Japan7/renovate-config"],
+  "nix": {
+    "lockFileMaintenance": {
+      "enabled": true,
+      "schedule": ["before 4am"]
+    }
+  }
 }
