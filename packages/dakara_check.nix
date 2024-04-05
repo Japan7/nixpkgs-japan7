@@ -1,22 +1,16 @@
 { stdenv
-, fetchFromGitHub
+, dakara_check-src
 , ffmpeg
+, ffmpegaacsucks
 , meson
 , ninja
 , pkg-config
-, ffmpegaacsucks
-, ...
 }:
-stdenv.mkDerivation rec {
+stdenv.mkDerivation {
   pname = "dakara_check";
-  version = "4.0.1";
+  version = builtins.substring 0 7 dakara_check-src.rev;
 
-  src = fetchFromGitHub {
-    owner = "Japan7";
-    repo = pname;
-    rev = version;
-    sha256 = "sha256-VZhDHq64XlIkS9mGvPLEA5i3gm1xPlTYB/uPveOH5Cw=";
-  };
+  src = dakara_check-src;
 
   nativeBuildInputs = [
     meson
