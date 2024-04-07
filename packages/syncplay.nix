@@ -1,5 +1,5 @@
-{ syncplay
-, syncplay-src
+{ syncplay-src
+, syncplay
 }:
 syncplay.overrideAttrs (oldAttrs: rec {
   name = "${pname}-${version}";

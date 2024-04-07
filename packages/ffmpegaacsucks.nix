@@ -1,6 +1,6 @@
 { stdenv
-, ffmpeg
 , ffmpegaacsucks-src
+, ffmpeg
 , meson
 , ninja
 , pkg-config
